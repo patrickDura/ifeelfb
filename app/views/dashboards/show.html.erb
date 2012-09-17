@@ -1,0 +1,7 @@
+ <% @finalResult.each do |pageId, nb| %>
+    <div class="pagesDisplay">
+      <span class="nbFriends"><%= nb %>
+        <fb:profile-pic uid="<%= pageId %>" size="normal"></fb:profile-pic>
+      </span>
+    </div>
+ <% end %>

@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ifeelfb</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <%= yield :head %>
+  <%= stylesheet_link_tag "application-all", :media => "all" %>
+  <%= stylesheet_link_tag "application-print", :media => "print" %>
+  <!--[if lte IE 8]>
+      <%= stylesheet_link_tag "application-ie", :media => "all" %>
+  <![endif]-->  
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
 </head>
-<body>
 
-<%= yield %>
-<div class="container">
-      <div class="main">
-        <%= yield %>
-      </div>
-      <aside class="sidebar">
-        <%= render :partial => 'layouts/sidebar' %>
-      </aside>
-</div>
-<div id="fb-root" style="width:500px; height:500px"></div>
-<script src="http://connect.facebook.net/en_US/all.js"></script>
-    <script>
-      FB.init({
-        appId: "<%= Facebook.config[:client_id] %>",
-        cookie: true,
-        xfbml: true,
-        oauth: true
-      });
-    </script>
+<body>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+</div> <!-- /container -->
+  <%= javascript_include_tag "application-all" %>
+  <%= render 'layouts/scripts' %>
 </body>
 </html>
