@@ -8,7 +8,7 @@ class DashboardsController < ApplicationController
     rest = Koala::Facebook::API.new(current_user.access_token)
 
     #friends like
-    fql = 'SELECT page_id FROM page_fan WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = ' + current_user.identifier + ')'
+    fql = 'SELECT uid, page_id FROM page_fan WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = ' + current_user.identifier + ')'
     fqlFriendResult = rest.fql_query(fql)
 
     #myLikes
@@ -18,23 +18,22 @@ class DashboardsController < ApplicationController
     friendPage = fqlFriendResult.raw_response["data"]
     mePage = fqlMeResult.raw_response["data"]
 
-    #my Friend Page
-    h = Hash.new
-
     #Hash of my friends
+    h = Hash.new
+    @finalResult = Hash.new
     mePage.each do |myPage|
-      h[myPage["page_id"]] = 1
+      h[myPage["page_id"]] = []
     end
 
     #For each friends page
     friendPage.each do |page|
       unless h[page["page_id"]] == nil
-        h[page["page_id"]] = h[page["page_id"]] + 1
+        @finalResult[page["page_id"]] = h[page["page_id"]] << page["uid"]
       end
     end
 
     #ordering hash
-    @finalResult = Hash[h.sort_by { |id, nb| nb }]
+    #@finalResult = h #Hash[h.sort_by { |id, nb| nb }]
 
   end
 

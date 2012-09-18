@@ -22,7 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'bootstrap-sass', '2.0.3'
+gem 'bootstrap-sass', '2.1.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -34,7 +34,7 @@ gem 'bootstrap-sass', '2.0.3'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

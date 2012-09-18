@@ -2,6 +2,7 @@
 
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:regular,regularitalic,600,600italic,bold);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 $grayMediumLight: #eaeaea;
 $default_rounded_amount: 5 px;
@@ -31,6 +32,7 @@ html {
 body {
   padding-top: 60px;
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  background-color : #EFE8FF;
 }
 
 section {
@@ -53,6 +55,35 @@ textarea {
   margin-left:auto;
 }
 
+.or{
+   font-size:200%;
+   font-weight:bold;
+   margin : 20px;
+}
+
+.rowResult{
+   margin : 8px;
+   background-color: lightblue;
+   padding: 5px;
+   @include round_corners;
+   border : solid 4px white;
+}
+
+.fb_link img{
+   float: left;
+}
+
+.nbFriends{
+  font-size : 400%;
+  margin-right : 30px;
+  margin-top : 50px;
+  font-family: "Pacifico";
+}
+
+.pagesDisplay{
+  margin-bottom : 18px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,6 +95,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  font-family: "Pacifico";
 }
 
 h2 {
@@ -87,7 +119,6 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -143,14 +174,3 @@ footer {
     cursor:pointer;
   }
 
-/* I Feel Facebook */
-
-.nbFriends{
-  font-size : 400%;
-  margin-right : 30px;
-}
-
-.pagesDisplay{
-  
-  margin-bottom : 18px;
-}

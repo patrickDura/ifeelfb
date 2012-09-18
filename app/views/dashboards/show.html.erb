@@ -1,7 +1,13 @@
+<h1>Common likes you have with all your friends</h1>
  <% @finalResult.each do |pageId, nb| %>
-    <div class="pagesDisplay">
-      <span class="nbFriends"><%= nb %>
-        <fb:profile-pic uid="<%= pageId %>" size="normal"></fb:profile-pic>
-      </span>
+    <div class="row rowResult">
+      <div class="span4">
+         <fb:profile-pic uid="<%= pageId %>" size="normal" class="img-polaroid"></fb:profile-pic>
+      </div>
+      <div class="span5">
+            <% nb.each do |id| %>
+               <fb:profile-pic uid="<%= id %>" width="75px" class="img-polaroid" style="margin:5px;"></fb:profile-pic>
+            <% end %>
+      </div>
     </div>
  <% end %>
