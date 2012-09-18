@@ -34,7 +34,10 @@ gem 'bootstrap-sass', '2.1.0'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+#gem 'capistrano'
+
+gem 'execjs'
+gem "therubyracer", :require => 'v8'
 
 # To use debugger
 # gem 'debugger'

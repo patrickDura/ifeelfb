@@ -21,3 +21,22 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
   })();
 </script>
+<script type="text/javascript">
+      $(function () {
+        <% if flash[:error] %>
+          $.gritter.add({
+            title: "<%= flash[:error][:title] %>",
+            text : "<%= flash[:error][:message] %>",
+            image: "<%= flash[:error][:image] %>",
+            time : 5000
+          });
+        <% elsif flash[:notice] %>
+          $.gritter.add({
+            title: "<%= flash[:notice][:title] %>",
+            text : "<%= flash[:notice][:message] %>",
+            image: "<%= flash[:notice][:image] %>",
+            time : 3000
+          });
+        <% end %>
+      });
+ </script>

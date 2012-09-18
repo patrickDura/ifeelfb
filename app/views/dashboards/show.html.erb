@@ -1,4 +1,4 @@
-<h1>Common likes you have with all your friends</h1>
+<h1><%= current_user.profile.name %>, common likes you have with all your friends</h1>
  <% @finalResult.each do |pageId, nb| %>
     <div class="row rowResult">
       <div class="span4">

@@ -6,7 +6,7 @@ class DashboardsController < ApplicationController
   	#@likes = current_user.profile.likes
 
     rest = Koala::Facebook::API.new(current_user.access_token)
-
+    
     #friends like
     fql = 'SELECT uid, page_id FROM page_fan WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = ' + current_user.identifier + ')'
     fqlFriendResult = rest.fql_query(fql)

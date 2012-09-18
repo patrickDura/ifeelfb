@@ -20,14 +20,4 @@ ActiveRecord::Schema.define(:version => 20120917220809) do
     t.datetime "updated_at",                 :null => false
   end
 
-  create_table "subscriptions", :force => true do |t|
-    t.integer  "facebook_id"
-    t.string   "object"
-    t.string   "fields"
-    t.string   "verify_token"
-    t.text     "history_json"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
 end
